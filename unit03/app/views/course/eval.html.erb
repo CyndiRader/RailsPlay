@@ -1,0 +1,8 @@
+<h2>Course Evaluation Criteria</h2>
+<p>Student grades will be calculated based on the following: </p>
+<% @criteria.each do |key, value| %>
+    <%= key %>
+    -
+    <%= value %>
+   % <br>
+<% end %>
