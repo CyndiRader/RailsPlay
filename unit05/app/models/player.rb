@@ -6,7 +6,7 @@ class Player < ActiveRecord::Base
 	#VALID_STATES = %w(O D S)
 	#validates :platoon, :inclusion => { :in => VALID_STATES }
 	#validates :platoon, inclusion: {:in => %w(offense defense special),  message: "%{value} is not a valid size"}
-	OPTIONS = %w(offense defense special)
+	OPTIONS =  ['offense','defense','special teams']
 
 	validate :platoon, inclusion: OPTIONS
 end

@@ -17,10 +17,10 @@ end
 f.close
 
 Team.create(name: 'Broncos', city: 'Denver').players.create([
-{first_name: 'Peyton', last_name: 'Manning', jersey: 18, platoon: 'O'},
-{first_name: 'Julius', last_name: 'Thomas', jersey: 80, platoon: 'O'},
-{first_name: 'Demarius', last_name: 'Thomas', jersey: 88, platoon: 'O'},
-{first_name: 'CJ', last_name: 'Anderson', jersey: 22, platoon: 'O'},
-{first_name: 'DeMarcus', last_name: 'Ware', jersey: 94, platoon: 'D'},
-{first_name: 'Aqib', last_name: 'Talib', jersey: 21, platoon: 'D'}
+{first_name: 'Peyton', last_name: 'Manning', jersey: 18, platoon: 'offense'},
+{first_name: 'Julius', last_name: 'Thomas', jersey: 80, platoon: 'offense'},
+{first_name: 'Demarius', last_name: 'Thomas', jersey: 88, platoon: 'offense'},
+{first_name: 'CJ', last_name: 'Anderson', jersey: 22, platoon: 'offense'},
+{first_name: 'DeMarcus', last_name: 'Ware', jersey: 94, platoon: 'defense'},
+{first_name: 'Aqib', last_name: 'Talib', jersey: 21, platoon: 'defense'}
 ])

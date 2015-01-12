@@ -24,7 +24,7 @@
     <%= f.text_field :jersey %>
   </div>
     <div class="field">
-      <%= select_tag "platoon", options_for_select(Player::OPTIONS, "offense") %>
+      <%= f.select :platoon, Player::OPTIONS %>
     </div>
   <div class="actions">
     <%= f.submit %>

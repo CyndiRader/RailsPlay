@@ -12,3 +12,22 @@
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
+
+<h2>List of Players</h2>
+<table>
+  <thead>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Jersey</th>
+    <th>Platoon</th>
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+<%= render @team.players %>
+  </tbody>
+</table>
+<p></p>
+<%= link_to 'New Player', new_team_player_path(@team) %>
