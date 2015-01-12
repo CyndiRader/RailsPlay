@@ -10,6 +10,8 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    # the following alternative would also work... I have chosen to put the order in the model
+    #@players = @team.players.order(platoon: :desc, jersey: :asc)
     @players = @team.players
   end
 
