@@ -11,7 +11,6 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
-    @team = Team.find(params[:team_id])
     @player = Player.find(params[:id])
   end
 
@@ -22,6 +21,8 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    #@team = Team.find(params[:team_id])
+    #@player = Player.find(params[:id])
   end
 
   # POST /players
@@ -45,7 +46,7 @@ class PlayersController < ApplicationController
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+        format.html { redirect_to team_player_path(@team, @player), notice: 'Player was successfully updated.' }
         format.json { render :show, status: :ok, location: @player }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class PlayersController < ApplicationController
   def destroy
     @player.destroy
     respond_to do |format|
-      format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
+      format.html { redirect_to team_path(@team), notice: 'Player was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -68,6 +69,7 @@ class PlayersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_player
         @players = @team.players
+        @player = Player.find(params[:id])
     end
 
     def set_team

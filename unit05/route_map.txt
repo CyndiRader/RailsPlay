@@ -1,0 +1,66 @@
+List of links/buttons
+team index. Links: show/edit/destroy team. Add new team. 
+show team. Links: edit/back. List of players: show/edit/destroy. New player. 
+show player. 
+edit player. Links: show/back. Update button. 
+new player. Link: back. Create player button. 
+
+-------------------- routes --------------------------
+          Prefix Verb   URI Pattern                                Controller#Action
+    team_players GET    /teams/:team_id/players(.:format)          players#index
+	
+ NEW PLAYER, PRESS CREATE PLAYER
+	POST   /teams/:team_id/players(.:format)          players#create
+ 
+ ON TEAM SHOW, CLICK NEW PLAYER LINK
+ new_team_player GET    /teams/:team_id/players/new(.:format)      players#new
+
+ ON PLAYER SHOW PAGE, CLICK EDIT. 
+ @team = Team.find(params[:id]). Done in set_team.
+ @player = Player.find(params[:id]). Done in set_player
+ edit_team_player GET    /teams/:team_id/players/:id/edit(.:format) players#edit
+ 
+ ON TEAM SHOW PAGE, CLICK ON A PLAYER. 
+ ON PLAYER EDIT PAGE, CLICK ON SHOW.
+ ON PLAYER EDIT PAGE, CLICK ON UPDATE (WITH SUCCESS). 
+ @team = Team.find(params[:id]). Done in set_team.	Needed for back button. 
+ @player = Player.find(params[:id]). Needed to display info. 
+ team_player GET    /teams/:team_id/players/:id(.:format)      players#show
+
+ FROM PLAYER EDIT PAGE, CLICK UPDATE
+                PATCH  /teams/:team_id/players/:id(.:format)      players#update
+
+                 PUT    /teams/:team_id/players/:id(.:format)      players#update
+
+FROM TEAM, LIST OF PLAYERS, CLICK DESTROY				 
+                 DELETE /teams/:team_id/players/:id(.:format)      players#destroy
+
+ROOT ROUTE. localhost/ or localhost/teams. @teams = Team.all (index lists all teams)				 
+           teams GET    /teams(.:format)                           teams#index
+		   
+                 POST   /teams(.:format)                           teams#create
+				 
+FROM INDEX, CLICK NEW TEAM. 
+				 new_team GET    /teams/new(.:format)                       teams#new
+
+FROM INDEX, CLICK EDIT. SHOWS ONE TEAM, DOES NOT SHOW PLAYERS.
+@team = Team.find(params[:id]). Done in set_team.		
+       edit_team GET    /teams/:id/edit(.:format)                  teams#edit
+
+FROM INDEX, CLICK SHOW. SHOWS ONE TEAM. ALSO ALL THE PLAYERS FOR THAT TEAM.
+FROM PLAYER SHOW, CLICK BACK. (link_to team_path)   
+FROM PLAYER EDIT, CLICK BACK. 
+FROM TEAM SHOW, CLICK ON PLAYER DELETE. IF SUCCESSFUL, REDIRECTS HERE. 
+FROM NEW PLAYER, CLICK BACK. 
+@team = Team.find(params[:id]). Done in set_team.
+@players = @team.players (note that @team must be set by set_team prior to this)
+            team GET    /teams/:id(.:format)                       teams#show
+			
+                 PATCH  /teams/:id(.:format)                       teams#update
+				 
+                 PUT    /teams/:id(.:format)                       teams#update
+
+FROM TEAM INDEX PAGE, CLICK DESTROY				 
+                 DELETE /teams/:id(.:format)                       teams#destroy
+				 
+            root GET    /                                          teams#index

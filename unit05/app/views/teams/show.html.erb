@@ -26,7 +26,19 @@
   </thead>
 
   <tbody>
-<%= render @team.players %>
+  <% @players.each do |player| %>
+
+  <%# render @team.players %>
+<tr>
+  <td><%= player.first_name %></td>
+  <td><%= player.last_name %></td>
+  <td><%= player.jersey %></td>
+  <td><%= player.platoon %></td>
+  <td><%= link_to 'Show', [@team, player] %></td>
+  <td><%= link_to 'Edit', edit_team_player_path(@team, player) %></td>
+  <td><%= link_to 'Destroy', [@team, player], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+      <% end %>
   </tbody>
 </table>
 <p></p>
