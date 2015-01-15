@@ -1,6 +1,6 @@
 List of links/buttons
-team index. Links: show/edit/destroy team. Add new team. 
-show team. Links: edit/back. List of players: show/edit/destroy. New player. 
+team index. Links: show/edit/destroy team. Button: Add new team. 
+show team. Links: edit/back. List of players links: show/edit/destroy. Link: New player. 
 show player. 
 edit player. Links: show/back. Update button. 
 new player. Link: back. Create player button. 
