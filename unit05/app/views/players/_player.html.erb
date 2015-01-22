@@ -4,7 +4,8 @@
   <td><%= player.jersey %></td>
   <td><%= player.platoon %></td>
   <td><%= link_to 'Show', [@team, player] %></td>
-  <td><%= link_to 'Showv2', team_player_path(@team, player) %></td>
+  <%# This could also be done as follows (put in <td> of course):
+  <%= link_to 'Showv2', team_player_path(@team, player) %>
   <td><%= link_to 'Edit', edit_team_player_path(@team, player) %></td>
   <td><%= link_to 'Destroy', [@team, player], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
