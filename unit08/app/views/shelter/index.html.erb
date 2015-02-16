@@ -1,0 +1,26 @@
+<h1>Pets for Adoption</h1>
+<table id="pet_list">
+  <thead>
+  <tr>
+    <th>Pet Type</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Description</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @pets.each do |pet| %>
+      <tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>" >
+
+        <td><%= pet.pet_type %></td>
+        <td><%= pet.name %></td>
+        <td><%= pet.age %></td>
+        <td><%= pet.description %></td>
+        <td><%= button_to 'Select Pet', selected_pets_path(pet_id: pet) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
