@@ -31,6 +31,7 @@ class SelectedPetsController < ApplicationController
 
     respond_to do |format|
       if @selected_pet.save
+        pet.is_selected
         format.html { redirect_to @selected_pet.cart, notice: 'Pet was selected' }
         format.json { render :show, status: :created, location: @selected_pet }
       else
@@ -72,6 +73,6 @@ class SelectedPetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def selected_pet_params
-      params.require(:selected_pet).permit(:pet_id, :cart_id)
+      params.require(:selected_pet).permit(:pet_id)
     end
 end
