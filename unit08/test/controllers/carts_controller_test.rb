@@ -1,9 +1,12 @@
 require 'test_helper'
 
 class CartsControllerTest < ActionController::TestCase
+
   setup do
     @cart = carts(:one)
+    session[:cart_id] = @cart.id
   end
+
 
   test "should get index" do
     get :index
@@ -44,6 +47,6 @@ class CartsControllerTest < ActionController::TestCase
       delete :destroy, id: @cart
     end
 
-    assert_redirected_to carts_path
+    assert_redirected_to shelter_index_url
   end
 end

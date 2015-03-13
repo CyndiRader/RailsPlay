@@ -4,6 +4,13 @@ class SelectedPetsControllerTest < ActionController::TestCase
   setup do
     @selected_pet = selected_pets(:one)
   end
+  test "should create selected_pet" do
+    assert_difference('SelectedPet.count') do
+      post :create, pet_id: pets(:one).id
+    end
+
+    assert_redirected_to cart_path(assigns(:selected_pet).cart)
+  end
 
   test "should get index" do
     get :index
@@ -16,13 +23,7 @@ class SelectedPetsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create selected_pet" do
-    assert_difference('SelectedPet.count') do
-      post :create, pet_id: pets(:one).id
-    end
 
-    assert_redirected_to cart_path(assigns(:selected_pet).cart)
-  end
 
   test "should show selected_pet" do
     get :show, id: @selected_pet
@@ -46,4 +47,5 @@ class SelectedPetsControllerTest < ActionController::TestCase
 
     assert_redirected_to selected_pets_path
   end
+
 end
