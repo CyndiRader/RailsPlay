@@ -1,0 +1,8 @@
+<% if selected_pet == @current_pet %>
+    <tr id="current_item">
+<% else %>
+    <tr>
+<% end %>
+  <td><%= selected_pet.pet.name %></td>
+  <td><%= button_to 'Remove', selected_pet, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+</tr>

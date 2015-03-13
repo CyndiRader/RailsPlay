@@ -1,0 +1,8 @@
+<tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>" >
+
+  <td><%= pet.pet_type %></td>
+  <td><%= pet.name %></td>
+  <td><%= pet.age %></td>
+  <td><%= pet.description %></td>
+  <td><%= button_to 'Select Pet', selected_pets_path(pet_id: pet), remote: true %></td>
+</tr>

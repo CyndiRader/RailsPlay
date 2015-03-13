@@ -1,0 +1,7 @@
+<h2>Selected Pets</h2>
+<table>
+  <%= render(cart.selected_pets) %>
+
+</table>
+
+<%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  age: MyString
+  description: "1234567890"
+
+two:
+  name: MyString
+  age: MyString
+  description: "1234567890123456789012345678901234567890"
+
+three:
+  name: MyString
+  age: MyString
+  description: "123456789"
+
+four:
+  name: MyString
+  age: MyString
+  description: "12345678901234567890123456789012345678901"
+
+noname:
+  name:
+  age: MyString
+  description: "1234567890123456789012345678901234567890"
+
