@@ -31,8 +31,8 @@ class SelectedPetsController < ApplicationController
 
     respond_to do |format|
       if @selected_pet.save
-        pet.is_selected
-        @pets = Pet.order(:pet_type).where(pet_status: "Available")
+        #pet.is_selected
+        @pets = Pet.order(:pet_type).where(pet_status: 'Available')
         format.html { redirect_to shelter_index_url }
         format.js {}
         format.json { render :show, status: :created, location: @selected_pet }
@@ -60,9 +60,9 @@ class SelectedPetsController < ApplicationController
   # DELETE /selected_pets/1
   # DELETE /selected_pets/1.json
   def destroy
-    pet = Pet.find(@selected_pet.pet_id)
+    #pet = Pet.find(@selected_pet.pet_id)
     @selected_pet.destroy
-    pet.make_available
+    #pet.make_available
     respond_to do |format|
       format.html { redirect_to shelter_index_url }
       format.json { head :no_content }
