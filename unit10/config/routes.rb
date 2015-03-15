@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get 'shelter/index'
 
-  get 'store/index'
+  post 'shelter/adopt'
+  post 'shelter/finish'
 
   resources :pets
 

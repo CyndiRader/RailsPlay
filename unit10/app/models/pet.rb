@@ -2,7 +2,7 @@ class Pet < ActiveRecord::Base
   has_many :selected_pets
   before_destroy :ensure_not_selected
   enum pet_type: [ :dog, :cat ]
-  STATUS_TYPES = %w(Available Fostered Selected)
+  STATUS_TYPES = %w(Available Adopted Selected)
   validates :name, presence: true
   validates :description, presence: true, length: { in: 10..40 }
   validates :picture, allow_blank: true, format: {
@@ -16,6 +16,14 @@ class Pet < ActiveRecord::Base
 
   def make_available
     self.update(pet_status: 'Available')
+  end
+
+  def make_adopted
+    self.update(pet_status: 'Adopted')
+  end
+
+  def is_adopted?
+    pet_status == 'Adopted'
   end
 
   def Pet.get_available_pets

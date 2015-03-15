@@ -5,5 +5,7 @@
   <td><%= pet.age %></td>
   <td><%= pet.description %></td>
   <td><%= image_tag(pet.picture, class: 'pet_image') %></td>
-  <td><%= button_to 'Select Pet', selected_pets_path(pet_id: pet), remote: true %></td>
+  <% unless @adopting %>
+      <td><%= button_to 'Select Pet', selected_pets_path(pet_id: pet), remote: true %></td>
+  <% end %>
 </tr>

@@ -55,10 +55,6 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.selected_pets.each do |selector|
-      pet = Pet.find(selector.pet_id)
-      pet.make_available
-    end
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
@@ -82,4 +78,6 @@ class CartsController < ApplicationController
     logger.error "Attempt to access invalid cart #{params[:id]}"
     redirect_to shelter_index_url, notice: 'Invalid cart'
   end
+
+
 end

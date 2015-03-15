@@ -4,4 +4,9 @@
 
 </table>
 
-<%= button_to 'Empty cart', cart, method: :delete %>
+<% unless cart.selected_pets.empty? %>
+    <%= button_to 'Empty cart', cart, method: :delete %>
+    <% unless @adopting %>
+        <%= button_to 'Adopt now', shelter_adopt_path %>
+    <% end %>
+<% end %>

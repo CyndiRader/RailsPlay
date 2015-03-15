@@ -12,6 +12,6 @@ class SelectedPet < ActiveRecord::Base
 
   def make_pet_available
     pet = Pet.find(pet_id)
-    pet.make_available
+    pet.make_available unless pet.is_adopted?
   end
 end
