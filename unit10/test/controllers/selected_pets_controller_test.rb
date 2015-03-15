@@ -9,7 +9,7 @@ class SelectedPetsControllerTest < ActionController::TestCase
       post :create, pet_id: pets(:one).id
     end
 
-    assert_redirected_to cart_path(assigns(:selected_pet).cart)
+    assert_redirected_to shelter_index_path
   end
 
   test "should get index" do
@@ -45,7 +45,7 @@ class SelectedPetsControllerTest < ActionController::TestCase
       delete :destroy, id: @selected_pet
     end
 
-    assert_redirected_to selected_pets_path
+    assert_redirected_to shelter_index_path
   end
 
 end

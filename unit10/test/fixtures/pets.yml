@@ -1,5 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+selected:
+  id: 1
+  name: Fluffy
+  age: 3 months
+  description: playful and energetic
+  
 one:
   name: MyString
   age: MyString
