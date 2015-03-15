@@ -5,6 +5,10 @@ class Pet < ActiveRecord::Base
   STATUS_TYPES = %w(Available Fostered Selected)
   validates :name, presence: true
   validates :description, presence: true, length: { in: 10..40 }
+  validates :picture, allow_blank: true, format: {
+      with: %r{\.(gif|jpg|png)\Z}i,
+      message: 'format must be GIF, JPG or PNG'
+  }
 
   def is_selected
     self.update(pet_status: 'Selected')

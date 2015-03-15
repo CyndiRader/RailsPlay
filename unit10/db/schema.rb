@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216203511) do
+ActiveRecord::Schema.define(version: 20150315162608) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150216203511) do
     t.datetime "updated_at",                        null: false
     t.integer  "pet_type",    default: 0,           null: false
     t.string   "pet_status",  default: "Available", null: false
+    t.string   "picture"
   end
 
   create_table "selected_pets", force: :cascade do |t|
