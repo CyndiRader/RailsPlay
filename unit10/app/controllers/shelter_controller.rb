@@ -1,12 +1,16 @@
 class ShelterController < ApplicationController
   include CurrentCart
-  before_action :set_cart
+  before_action :set_current_cart
   def index
     @pets = Pet.get_available_pets
   end
   def adopt
     @adopting = true
-    @pets = @cart.selected_pets.pets
+    @pets = @cart.selected_pets
+    @pets = Array.new
+    @cart.selected_pets.each do |selected_pet|
+      @pets.push(Pet.find(selected_pet.pet_id))
+    end
   end
   def finish
     @cart.selected_pets.each do |selector|

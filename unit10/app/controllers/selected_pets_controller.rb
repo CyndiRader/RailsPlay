@@ -1,6 +1,6 @@
 class SelectedPetsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_current_cart, only: [:create]
   before_action :set_selected_pet, only: [:show, :edit, :update, :destroy]
 
   # GET /selected_pets
