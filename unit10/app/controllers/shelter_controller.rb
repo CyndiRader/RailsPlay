@@ -6,10 +6,7 @@ class ShelterController < ApplicationController
   end
   def adopt
     @adopting = true
-    @pets = Array.new
-    @cart.selected_pets.each do |selected_pet|
-      @pets.push(Pet.find(selected_pet.pet_id))
-    end
+    @pets = @cart.selected_pets.pets
   end
   def finish
     @cart.selected_pets.each do |selector|
